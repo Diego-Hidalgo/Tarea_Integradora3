@@ -23,6 +23,7 @@ public class HeadCoach extends Coach implements Calculable{
 	* construcotr of the HeadCoach class.<br>
 	* <b>pre:</b> parameters are initialized.<br>
 	* <b>post:</b> HeadCoach class object created.<br>
+	* @param name. HeadCoach name. name != null.
 	* @param id. HeadCoach id. id != null, id != ""
 	* @param salary. HeadCoach salary. salary > 0. 
 	* @param state. HeadCoach state. state is initialized

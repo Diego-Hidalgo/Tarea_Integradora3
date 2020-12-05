@@ -12,13 +12,13 @@ public class TechnicalAssistant extends Coach{
 	* constructor of the TechnicalAssistant class.<br>
 	* <b>pre:</b> parameters are initialized.<br>
 	* <b>post:</b> TechnicalAssistant class object created.<br>
-	* @param name. TechnicalAssistant name. name != null. name != ""
+	* @param name. TechnicalAssistant name. name != null. name != "".
 	* @param id. TechnicalAssistant id. id != null.
 	* @param salary. TechnicalAssistant salary. salary > 0. 
 	* @param state. TechnicalAssistant state. state is initialized
-	* @param expYears. TechnicalAssistant experience years. years >= 0
-	* @param professionalPlayer. TechnicalAssistant professionalPlayer info. professionalPlayer is initialized
-	* @param expertise. TechnicalAssistant expertise. expertise is initialized
+	* @param expYears. TechnicalAssistant experience years. years >= 0.
+	* @param professionalPlayer. TechnicalAssistant professionalPlayer info. professionalPlayer is initialized.
+	* @param expertise. TechnicalAssistant expertise. expertise is initialized.
 	*/
 	public TechnicalAssistant(String name, int id, double salary, boolean state ,int expYears, boolean professionalPlayer, Expertise[] expertise){
 		super(name, id, salary, state, expYears );

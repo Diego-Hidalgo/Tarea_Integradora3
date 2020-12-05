@@ -737,7 +737,7 @@ public class Club{
 	* @param teamIndex. index of the team to add. teamIndex > 0
 	* @param date. Alignment date. date != null. date != "".
 	* @param tactic. Alignment tactic. tactic != null. tactic != "".
-	* @param fieldFormation. Alignemnt formation. formation != null. formation != "".
+	* @param formation. Alignemnt formation. formation != null. formation != "".
 	*/
 	public void addAlignmentToTeam(int teamIndex, String date, String tactic, String formation){
 		teams[teamIndex-1].addAlignment(date, tactic, formation);

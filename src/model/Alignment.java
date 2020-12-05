@@ -80,7 +80,7 @@ public class Alignment{
 	* Changes the fieldFormation of the Alignemnt.<br>
 	* <b>pre:</b> fieldFormation is initialized.<br>
 	* <b>post:</b> fieldFormation has been changed.<br>
-	* @param fieldFormation. New Alignemnt formation. formation != null. formation != "".
+	* @param formation. New Alignemnt formation. formation != null. formation != "".
 	*/
 	public void setFieldFormation(String formation){
 		int aux = 9;

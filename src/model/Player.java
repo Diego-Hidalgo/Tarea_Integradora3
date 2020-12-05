@@ -15,14 +15,14 @@ public class Player extends Employee implements Calculable{
 	* constructor of the Player class.<br>
 	* <b>pre:</b> parameters are initialized.<br>
 	* <b>post:</b> Player class object created.<br>
-	* @param name. Player name. name != null. name != ""
+	* @param name. Player name. name != null. name != "".
 	* @param id. Player id. id != null.
 	* @param salary. Player salary. salary > 0. 
-	* @param state. Player state. state is initialized
-	* @param number. Player number . number >= 0
-	* @param goals. Player goals. goals >= 0
-	* @param averageScore. Player average score >= 0
-	* @param position. Player position. position != null. position != ""
+	* @param state. Player state. state is initialized.
+	* @param number. Player number . number >= 0.
+	* @param goals. Player goals. goals >= 0.
+	* @param averageScore. Player average score >= 0.
+	* @param position. Player position. position != null. position != "".
 	*/
 	public Player(String name, int id, double salary, boolean state, int number, int goals, double averageScore, String position){
 		super(name, id, salary, state);
