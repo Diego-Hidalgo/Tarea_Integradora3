@@ -77,7 +77,7 @@ public class Menu{
 		System.out.println("Que desea hacer?");
 		System.out.println(" [1] Agregar un empleado al club");
 		System.out.println(" [2] Despedir un empleado del club");
-		System.out.println(" [3] Actualiza datos de un empleado");
+		System.out.println(" [3] Actualizar datos de un empleado");
 		System.out.println(" [4] Agregar entrenador principal a un equipo");
 		System.out.println(" [5] Agregar asistente tecnico a un equipo");
 		System.out.println(" [6] Agregar jugador a un equipo");

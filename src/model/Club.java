@@ -493,7 +493,7 @@ public class Club{
 	public void updateEmployeeSalary(int employeeId, double newSalary){
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
-			if(employees.get(i).getId() == employeeId){
+			if(employees.get(i).getId() == employeeId && employees.get(i).getState()){
 				employees.get(i).setSalary(newSalary);
 				update = true;
 			}
@@ -510,7 +510,7 @@ public class Club{
 	public void updatePlayerNumber(int playerId, int newNumber){
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
-			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player){
+			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player && employees.get(i).getState()){
 				Player player = (Player)employees.get(i);
 				player.setNumber(newNumber);
 				update = true;
@@ -528,7 +528,7 @@ public class Club{
 	public void updatePlayerGoals(int playerId, int newGoals){
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
-			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player){
+			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player && employees.get(i).getState()){
 				Player player = (Player)employees.get(i);
 				player.setGoals(newGoals);
 				update = true;
@@ -546,7 +546,7 @@ public class Club{
 	public void updatePlayerAvScore(int playerId, double newAvScore){
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
-			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player){
+			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player && employees.get(i).getState()){
 				Player player = (Player)employees.get(i);
 				player.setAverageScore(newAvScore);
 				update = true;
@@ -564,7 +564,7 @@ public class Club{
 	public void updatePlayerPosition(int playerId, String newPosition){
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
-			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player){
+			if(employees.get(i).getId() == playerId && employees.get(i) instanceof Player && employees.get(i).getState()){
 				Player player = (Player)employees.get(i);
 				player.setPosition(newPosition);
 				update = true;
@@ -583,12 +583,12 @@ public class Club{
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
 			if(employees.get(i).getId() == coachId){
-				if(employees.get(i) instanceof HeadCoach){
+				if(employees.get(i) instanceof HeadCoach && employees.get(i).getState()){
 					HeadCoach coach = (HeadCoach)employees.get(i);
 					coach.setExpYears(newExpYears);
 					update = true;
 				}
-				else if(employees.get(i) instanceof TechnicalAssistant){
+				else if(employees.get(i) instanceof TechnicalAssistant && employees.get(i).getState()){
 					TechnicalAssistant coach = (TechnicalAssistant)employees.get(i);
 					coach.setExpYears(newExpYears);
 					update = true;	
@@ -607,7 +607,7 @@ public class Club{
 	public void updateHeadCoachChampionShips(int headCoachId, int newChampionShips){
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
-			if(employees.get(i).getId() == headCoachId && employees.get(i) instanceof HeadCoach){
+			if(employees.get(i).getId() == headCoachId && employees.get(i) instanceof HeadCoach && employees.get(i).getState()){
 				HeadCoach headCoach = (HeadCoach)employees.get(i);
 				headCoach.setAchievedChampionShips(newChampionShips);
 				update = true;
@@ -631,7 +631,7 @@ public class Club{
 		}
 		boolean update = false;
 		for(int i = 0; i<employees.size() && !update; i++){
-			if(employees.get(i).getId() == assistantId && employees.get(i) instanceof TechnicalAssistant){
+			if(employees.get(i).getId() == assistantId && employees.get(i) instanceof TechnicalAssistant && employees.get(i).getState()){
 				TechnicalAssistant assistant = (TechnicalAssistant)employees.get(i);
 				assistant.setExpertise(newExpertises);
 				update = true;
@@ -668,7 +668,7 @@ public class Club{
 	public void addHeadCoachToTeam(int teamIndex, int headCoachId){
 		boolean add = false;
 		for(int i = 0; i<employees.size() && !add; i++){
-			if(employees.get(i).getState() && employees.get(i).getId() == headCoachId){
+			if(employees.get(i).getState() && employees.get(i).getId() == headCoachId && employees.get(i) instanceof HeadCoach){
 				HeadCoach coach = (HeadCoach)employees.get(i);
 				teams[teamIndex-1].setHeadCoach(coach);
 				coach.setLeadingTeams(coach.getLeadingTeams()+1);
@@ -688,7 +688,7 @@ public class Club{
 		boolean add = false;
 		String msg = "No se pudo agregar al asistente al equipo";
 		for(int i = 0; i<employees.size() && !add; i++){
-			if(employees.get(i).getState() && employees.get(i).getId() == assistantId){
+			if(employees.get(i).getState() && employees.get(i).getId() == assistantId && employees.get(i) instanceof TechnicalAssistant){
 				TechnicalAssistant assistant = (TechnicalAssistant)employees.get(i);
 				boolean result = teams[teamIndex-1].addTechnicalAssistant(assistant);
 				if(result){
@@ -714,7 +714,7 @@ public class Club{
 		boolean add = false;
 		String msg = "No se pudo agregar al jugador al equipo";
 		for(int i = 0; i<employees.size() && !add; i++){
-			if(employees.get(i).getState() && employees.get(i).getId() == playerId){
+			if(employees.get(i).getState() && employees.get(i).getId() == playerId && employees.get(i) instanceof Player){
 				Player player = (Player)employees.get(i);
 				player.setTeamName(teams[teamIndex-1].getName());
 				boolean result = teams[teamIndex-1].addPlayer(player);
@@ -754,7 +754,7 @@ public class Club{
 		boolean add = false;
 		int distance = 0;
 		for(int i = 0; i<employees.size() && !add; i++){
-			if(employees.get(i).getState() && employees.get(i).getId() == coachId){
+			if(employees.get(i).getState() && employees.get(i).getId() == coachId && employees.get(i) instanceof Coach){
 				for(int j = 0; j<ROWS_OFFICE && !add; j++){
 					for(int k = 0; k<COLUMNS_OFFICE && !add; k++){
 						if(coachesOffice[j][k] == null){
@@ -784,7 +784,7 @@ public class Club{
 		boolean add = false; 
 		int distance = 0;
 		for(int i = 0; i<employees.size() && !add; i++){
-			if(employees.get(i).getState() && employees.get(i).getId() == playerId){
+			if(employees.get(i).getState() && employees.get(i).getId() == playerId && employees.get(i) instanceof Player){
 				Player player = (Player)employees.get(i);
 				if(player.getTeamName().equalsIgnoreCase("A")){
 					msg = addPlayerToFirstDressingRoom(player);
