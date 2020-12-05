@@ -84,20 +84,43 @@ public class Alignment{
 	*/
 	public void setFieldFormation(String formation){
 		int aux = 9;
+		boolean stop = false;
+		int amount = 0;
 		String[] array = formation.split("-");
 		int[] arrayInfo = new int[10];
 		for(int i = 0; i<array.length; i++){
 			arrayInfo[aux] = Integer.parseInt(array[i]);
 			aux--;
 		}
-		for(int i = (ROWS-1); i>=0; i--){
-			int count = 0;
-			for(int j = 0; j<arrayInfo.length; j++){
+		for(int i = 0; i<arrayInfo.length; i++){
+			if(arrayInfo[i] != 0){
+				amount ++;
+			}
+		}
+		for(int i = 9; i>=0; i--){
+			for(int j = 9; j>=0; j--){
+				int count = 0;
+				stop = false;
 				if(arrayInfo[i] != 0){
-					for(int k = 0; k<COLUMNS; k++){
+					for(int k = 0; k<=COLUMNS && !stop; k++){
 						if(count != arrayInfo[i]){
-							fieldFormation[i][k] = 1;
-							count ++;
+							if(amount < 5 && j%3 == 0){
+								fieldFormation[j][k] = 1;
+								count ++;
+							}
+							else if(amount == 5 && j%2 == 0){
+								fieldFormation[j][k] = 1;
+								count ++;
+							}
+							else if(amount > 5){
+								fieldFormation[j][k] = 1;
+								count ++;
+							}
+							
+						}
+						else{
+							i--;
+							stop = true;
 						}
 					}
 				}

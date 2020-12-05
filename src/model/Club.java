@@ -195,13 +195,22 @@ public class Club{
 	*/
 	public boolean verifyAlignmentAmountPlayers(String alignment){
 		int amount = 0;
+		boolean verify = true;
 		String[] alignmentArray = alignment.split("-");
 		int[] arrayInfo = new int[10];
-		for(int i = 0; i<alignmentArray.length; i++){
+		for(int i = 0; i<alignmentArray.length && verify; i++){
 			arrayInfo[i] = Integer.parseInt(alignmentArray[i]);
-			amount += arrayInfo[i];
+			if(arrayInfo[i] > 7){
+				verify = false;
+			}
+			else{
+				amount += arrayInfo[i];
+			}
 		}
-		if(amount < 7 || amount > 10){
+		if(!verify){
+			return false;
+		}
+		else if(amount < 7 || amount > 10){
 			return false;
 		}
 		else{
